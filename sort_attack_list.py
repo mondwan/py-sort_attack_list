@@ -128,6 +128,42 @@ def sort_attack_list_by_distance(commands, config):
     return ret
 
 
+def filter_attack_list(commands, config):
+    """
+    Filter command in commands accordingly depends on given config
+
+    Parameters:
+
+    - `commands`: Array of Object
+
+    - `config`: ConfigParser.RawConfigParser
+
+    Return:
+
+    - `Array of objects`
+    """
+    ret = []
+
+    isFilterByPosition = config.get('filter', 'by_position')
+
+    if isFilterByPosition:
+        positions = []
+        for record in commands:
+            # Cast string to int
+            targetX = int(record['target_x'])
+            targetY = int(record['target_y'])
+            position = (targetX, targetY)
+
+            # Skip this record
+            if position in positions:
+                continue
+
+            positions.append(position)
+            ret.append(record)
+
+    return ret
+
+
 def main(argv=None):
     """
     Main entry
@@ -155,6 +191,9 @@ def main(argv=None):
 
     # Sort by distance
     ret = sort_attack_list_by_distance(commands, config)
+
+    # Filter if required
+    ret = filter_attack_list(commands, config)
     
     # Write to a file
     json['commands'] = ret

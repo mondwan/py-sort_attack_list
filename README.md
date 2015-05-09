@@ -14,7 +14,12 @@ This is a project for sorting attack list from tb (travian builder)
     $> ls
     config.ini sort_attack_list.py myList.attack
     
-    # Define your position in config.ini which will be involved in distance calculation
+    # Define your position in config.ini which will be involved in distance
+    # calculation
+
+    # Define your filtering algorithm in config.ini:
+    # Currently, it supports filtering by_position only. In other words,
+    # records with same position will be deleted
 
     # Sort list
     $> python sort_attack_list.py myList.attack
