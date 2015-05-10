@@ -160,6 +160,8 @@ def filter_attack_list(commands, config):
 
             positions.append(position)
             ret.append(record)
+    else:
+        ret = commands
 
     return ret
 
