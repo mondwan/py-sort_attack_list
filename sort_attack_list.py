@@ -163,6 +163,8 @@ def filter_attack_list(commands, config):
     else:
         ret = commands
 
+    ret = sorted(ret, key=lambda record: record['distance'])
+
     return ret
 
 
