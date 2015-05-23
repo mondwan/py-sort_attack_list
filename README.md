@@ -1,5 +1,9 @@
 # About
 
+Depreciated. Please refer to [this repository][1]
+
+[1]: https://github.com/mondwan/py-tb_attack_list
+
 This is a project for sorting attack list from tb (travian builder)
 
 @author: Mond Wan
